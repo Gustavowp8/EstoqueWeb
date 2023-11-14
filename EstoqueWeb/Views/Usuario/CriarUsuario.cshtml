@@ -1,0 +1,42 @@
+﻿@model EstoqueWeb.Models.UsuarioModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+
+    <form asp-action="CriarUsuario">
+
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group">
+            <label asp-for="Nome" class="form-label">Nome </label><br />
+            <input asp-for="Nome" class="form-control" />
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Login" class="form-label">Login </label><br />
+            <input asp-for="Login" class="form-control" />
+            <span asp-validation-for="Login" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Senha" class="form-label">Senha </label><br />
+            <input asp-for="Senha" type="password" class="form-control" />
+            <span asp-validation-for="Senha" class="text-danger"></span>
+        </div> <br />
+
+        <div>
+            <input type="submit" value="Criar Usuario" class="btn btn-success" />
+        </div>
+
+    </form>
+
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
