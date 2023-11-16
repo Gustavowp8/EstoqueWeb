@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EstoqueWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EstoqueWeb.styles.css" asp-append-version="true" />
+</head>
+
+<div class="text-center">
+    <h1 class="display-4">Bem-vindo ao gerenciador</h1>
+    <p>Este aplicação esta em desenvolvimento.</p>
+</div>
+
+<div>
+    <partial name="_Mensagem"></partial>
+</div>
+
+<div class="AreaSenha">
+
+    <form action="/Login/Entrar" method="post">
+        <div class="form-group">
+            <label>Login</label>
+            <input type="text" class="form-control" name="login" placeholder="Digite o seu login">
+        </div> <br />
+
+        <div class="form-group">
+            <label>Senha</label>
+            <input type="password" class="form-control" name="senha" placeholder="Digite sua Senha">
+        </div> <br />
+
+        <button type="submit" class="btn btn-primary">Entrar</button> <br /> <br />
+
+        <div class="text-center">
+        <a asp-controller="Usuario" asp-action="CriarUsuario">Criar Usuario</a>
+        </div>
+    </form>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</div>

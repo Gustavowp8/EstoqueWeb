@@ -18,9 +18,9 @@ namespace EstoqueWeb.Models
         public decimal Preco { get; set; }
 
         //Tabela relacionada
-        [ForeignKey("categoria")]
+        [ForeignKey("Categoria")]
         public int IdCategoria { get; set; }
 
-        public CategoriaModel Categoria { get; set; } 
+        public CategoriaModel Categoria { get; set; }  
     }
 }

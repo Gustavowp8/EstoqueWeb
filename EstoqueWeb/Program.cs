@@ -12,6 +12,14 @@ var connection = builder.Configuration.GetConnectionString("DbEstoque");
 builder.Services.AddDbContext<Context>(options => options.UseMySql(connection,
     Microsoft.EntityFrameworkCore.ServerVersion.Parse("3.0.38-mysql")));
 
+//Este e o cadigo da autenticação
+builder.Services.AddAuthentication("CookieAuthentication").AddCookie("CookieAuthentication", options =>
+{
+    options.LoginPath = "/Login/Entrar";
+    options.AccessDeniedPath = "/Login/Ops";
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,6 +34,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -1,10 +1,12 @@
 ﻿using EstoqueWeb.Data;
 using EstoqueWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EstoqueWeb.Controllers
 {
+    [Authorize(AuthenticationSchemes = "CookieAuthentication")]
     public class CategoriaController : Controller
     {
 
@@ -33,11 +35,13 @@ namespace EstoqueWeb.Controllers
             {
                 db.Categorias.Add(categoria);
                 db.SaveChanges();
+                TempData["mensagem"] = MensagemModel.Serializar("Categoria cadastrado com sucesso.");
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                TempData["mensagem"] = MensagemModel.Serializar("Erro ao cadastra categoria.", TipoMensagem.Erro);
+                return RedirectToAction(nameof(Index));
             }
         }
 

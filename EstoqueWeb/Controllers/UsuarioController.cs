@@ -33,11 +33,13 @@ namespace EstoqueWeb.Controllers
             {
                 db.Usuarios.Add(usuario);
                 db.SaveChanges();
+                TempData["mensagem"] = MensagemModel.Serializar("Usuario cadastrado com sucesso.");
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                TempData["mensagem"] = MensagemModel.Serializar("Usuario cadastrado com sucesso.", TipoMensagem.Erro);
+                return RedirectToAction("Index");
             }
         }
 

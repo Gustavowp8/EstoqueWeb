@@ -17,7 +17,7 @@ namespace EstoqueWeb.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await db.Produtos.OrderBy(x => x.Nome).Include(x => x.Categoria).AsNoTracking().ToListAsync());
+            return View(await db.Produtos.OrderBy(x => x.Nome).Include(a => a.Categoria).AsNoTracking().ToListAsync());
         }
 
         public IActionResult Cadastrar()
