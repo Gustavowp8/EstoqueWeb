@@ -31,5 +31,25 @@ body {
 }
 
 .AreaSenha button{
-    width: 100%;
+    width: 100%; 
+}
+
+.flex{
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.flex img{
+     width: 40px;
+}
+
+.flex > div{
+    flex: 1 1 90px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
 }
